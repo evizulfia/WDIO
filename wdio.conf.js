@@ -205,9 +205,16 @@ exports.config = {
             await $(uploadBoxSelector).setValue(remoteFilePath)
             await $(submitUploadSelector).click()
             // await (await $('input[type="submit"]')).click()
-            
             })
+
+        browser.addCommand('getTitleAndURL', async () => {
+            return{
+                title: await browser.getTitle(),
+                url: await browser.getUrl(),
+            }
+        })
     },
+
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {String} commandName hook command name
