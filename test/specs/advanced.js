@@ -22,7 +22,7 @@ describe.only('Advanced Testings', () => {
 
         // let uploadedFile = await $('#uploaded-files')
         // await expect(uploadedFile).toHaveTextContaining('screenshot.png')
-        await browser.customFileUpload(filePath)
+        await browser.customFileUpload(filePath, '#file-upload', 'input[type="submit"]')
         await browser.pause(bigPause)
     })
 

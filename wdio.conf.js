@@ -200,14 +200,12 @@ exports.config = {
      * @param {Object}         browser      instance of created browser/device session
      */
     before: function (capabilities, specs) {
-        browser.addCommand('customFileUpload', async (path) => {
+        browser.addCommand('customFileUpload', async (path, uploadBoxSelector, submitUploadSelector) => {
             const remoteFilePath = await browser.uploadFile(path)
-            let fileInput = await $('#file-upload')
-    
-            await fileInput.setValue(remoteFilePath)
-            await (await $('input[type="submit"]')).click()
-            let uploadedFile = await $('#uploaded-files')
-            await expect(uploadedFile).toHaveTextContaining('screenshot.png')
+            await $(uploadBoxSelector).setValue(remoteFilePath)
+            await $(submitUploadSelector).click()
+            // await (await $('input[type="submit"]')).click()
+            
             })
     },
     /**
