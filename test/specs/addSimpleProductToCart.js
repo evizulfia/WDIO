@@ -13,8 +13,9 @@ describe('Add product to cart', () =>{
 
         
         let cookiePopup = await $('#onetrust-accept-btn-handler')
-        await cookiePopup.waitForExist()
-        await cookiePopup.click()
+        await browser.waitAndClick(cookiePopup)
+        // await cookiePopup.waitForExist()
+        // await cookiePopup.click()
         // await selectbox('button[text()="1kg"]').click()
         // // await (await $('button[text()="1kg"]')).click()
         await browser.pause(bigPause)

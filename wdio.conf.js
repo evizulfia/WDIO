@@ -213,6 +213,11 @@ exports.config = {
                 url: await browser.getUrl(),
             }
         })
+
+        browser.addCommand('waitAndClick', async (selector) => {
+            await $(selector).waitForDisplayed()
+            await $(selector).click()
+        })
     },
 
     /**
